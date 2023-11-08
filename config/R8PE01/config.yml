@@ -1,0 +1,12 @@
+# See config.example.yml for documentation.
+object: orig/R8PE01/sys/main.dol
+hash: 847ea576f843514310e287c14fcef59f9794b3c4
+symbols: config/R8PE01/symbols.txt
+splits: config/R8PE01/splits.txt
+mw_comment_version: 8
+
+#modules:
+#- object: orig/R8PE01/files/module.rel
+#  hash: 0123456789abcdef0123456789abcdef01234567
+#  symbols: config/R8PE01/module/symbols.txt
+#  splits: config/R8PE01/module/splits.txt

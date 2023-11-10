@@ -4,6 +4,7 @@ hash: 847ea576f843514310e287c14fcef59f9794b3c4
 symbols: config/R8PE01/symbols.txt
 splits: config/R8PE01/splits.txt
 mw_comment_version: 8
+write_asm: false
 
 #modules:
 #- object: orig/R8PE01/files/module.rel

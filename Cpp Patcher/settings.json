@@ -1,5 +1,6 @@
 {
     "srcDirectory": "C:\\Users\\herba\\OneDrive\\Desktop\\Programming\\Reverse Engineering\\Super Paper Mario Decomp\\dtk-template\\src\\",
     "compilerDirectory": "C:\\Users\\herba\\OneDrive\\Desktop\\Programming\\Reverse Engineering\\Super Paper Mario Decomp\\dtk-template\\build\\compilers\\GC\\2.7",
-    "includeDirectory": "C:\\Users\\herba\\OneDrive\\Desktop\\Programming\\Reverse Engineering\\Super Paper Mario Decomp\\dtk-template\\src\\Include"
+    "includeDirectory": "C:\\Users\\herba\\OneDrive\\Desktop\\Programming\\Reverse Engineering\\Super Paper Mario Decomp\\dtk-template\\src\\Include",
+    "outputDirectory": "C:\\Users\\herba\\OneDrive\\Desktop\\Programming\\Reverse Engineering\\Super Paper Mario Decomp\\dtk-template\\build\\R8PE01\\obj"
 }

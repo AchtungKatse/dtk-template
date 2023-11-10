@@ -18,18 +18,22 @@ class Program
         settings = GetSettings();
         Dictionary<string, string> cppToOMaps = GetCPPOMap();
 
+        string output = "Starting";
+
         foreach (var srcPath in cppToOMaps.Keys)
         {
             if (!File.Exists(settings.srcDirectory + "/" + srcPath))
             {
-                Console.WriteLine($"Could not find file with name '{srcPath}'");
+                output += $"Could not find file with name '{srcPath}'";
                 continue;
             }
 
             // Compile the thing
-            string command = $"-c \"{settings.srcDirectory.Replace('\\','/')}/{srcPath}\" -i \"{settings.includeDirectory}\" -O4 -o \"{settings.outputDirectory}/{cppToOMaps[srcPath]}\"";
-            Console.WriteLine($"Running command: \n\t{command}");
+            string command = $"-c \"{settings.srcDirectory.Replace('\\','/')}/{srcPath}\" -I\"{settings.includeDirectory}\" -O4,p -o \"{settings.outputDirectory}/{cppToOMaps[srcPath]}\"";
+            string command2 = $"-c \"{settings.srcDirectory.Replace('\\','/')}/{srcPath}\" -I\"{settings.includeDirectory}\" -O4,p -o \"output.o\"";
+            Console.WriteLine($"Writing {srcPath} to {cppToOMaps[srcPath]}");
             RunCommand(command);
+            RunCommand(command2);
         }
     }
 
@@ -37,7 +41,7 @@ class Program
     {
         System.Diagnostics.Process process = new System.Diagnostics.Process();
         System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-        startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+        startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
         startInfo.FileName = $"{settings.compilerDirectory.Replace('\\', '/')}/mwcceppc.exe";
         startInfo.Arguments = $"{command}";
         process.StartInfo = startInfo;

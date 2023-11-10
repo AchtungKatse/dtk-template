@@ -1,0 +1,14 @@
+C:\Users\herba\OneDrive\Desktop\Programming\Reverse Engineering\Super Paper Mario Decomp\dtk-template\Cpp Patcher\bin\Debug\net7.0\Cpp Patcher.exe
+C:\Users\herba\OneDrive\Desktop\Programming\Reverse Engineering\Super Paper Mario Decomp\dtk-template\Cpp Patcher\bin\Debug\net7.0\Cpp Patcher.deps.json
+C:\Users\herba\OneDrive\Desktop\Programming\Reverse Engineering\Super Paper Mario Decomp\dtk-template\Cpp Patcher\bin\Debug\net7.0\Cpp Patcher.runtimeconfig.json
+C:\Users\herba\OneDrive\Desktop\Programming\Reverse Engineering\Super Paper Mario Decomp\dtk-template\Cpp Patcher\bin\Debug\net7.0\Cpp Patcher.dll
+C:\Users\herba\OneDrive\Desktop\Programming\Reverse Engineering\Super Paper Mario Decomp\dtk-template\Cpp Patcher\bin\Debug\net7.0\Cpp Patcher.pdb
+C:\Users\herba\OneDrive\Desktop\Programming\Reverse Engineering\Super Paper Mario Decomp\dtk-template\Cpp Patcher\obj\Debug\net7.0\Cpp Patcher.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\herba\OneDrive\Desktop\Programming\Reverse Engineering\Super Paper Mario Decomp\dtk-template\Cpp Patcher\obj\Debug\net7.0\Cpp Patcher.AssemblyInfoInputs.cache
+C:\Users\herba\OneDrive\Desktop\Programming\Reverse Engineering\Super Paper Mario Decomp\dtk-template\Cpp Patcher\obj\Debug\net7.0\Cpp Patcher.AssemblyInfo.cs
+C:\Users\herba\OneDrive\Desktop\Programming\Reverse Engineering\Super Paper Mario Decomp\dtk-template\Cpp Patcher\obj\Debug\net7.0\Cpp Patcher.csproj.CoreCompileInputs.cache
+C:\Users\herba\OneDrive\Desktop\Programming\Reverse Engineering\Super Paper Mario Decomp\dtk-template\Cpp Patcher\obj\Debug\net7.0\Cpp Patcher.dll
+C:\Users\herba\OneDrive\Desktop\Programming\Reverse Engineering\Super Paper Mario Decomp\dtk-template\Cpp Patcher\obj\Debug\net7.0\refint\Cpp Patcher.dll
+C:\Users\herba\OneDrive\Desktop\Programming\Reverse Engineering\Super Paper Mario Decomp\dtk-template\Cpp Patcher\obj\Debug\net7.0\Cpp Patcher.pdb
+C:\Users\herba\OneDrive\Desktop\Programming\Reverse Engineering\Super Paper Mario Decomp\dtk-template\Cpp Patcher\obj\Debug\net7.0\Cpp Patcher.genruntimeconfig.cache
+C:\Users\herba\OneDrive\Desktop\Programming\Reverse Engineering\Super Paper Mario Decomp\dtk-template\Cpp Patcher\obj\Debug\net7.0\ref\Cpp Patcher.dll

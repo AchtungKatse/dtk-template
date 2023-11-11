@@ -1,7 +1,7 @@
-#include <Player/Player.h>
-#include <Player/PlayerStats.h>
-#include <Bag/Bag.h>
-#include <Bag/Item.h>
+#include "Player/Player.h"
+#include "Player/PlayerStats.h"
+#include "Bag/Bag.h"
+#include "Bag/Item.h"
 
 uint Player::GetAttackDamage(DamageSource source, EntityType entity)
 {
@@ -15,7 +15,7 @@ uint Player::GetAttackDamage(DamageSource source, EntityType entity)
     Item enemyCatchCard;
 
     Player &l_PlayerData = G_PlayerData;
-    damage = PlayerStats::GetAttack();
+    damage = PlayerStats::GetAttack(0);
     if (source == 0xb)
     {
         damage = 99;
@@ -69,9 +69,9 @@ uint Player::GetAttackDamage(DamageSource source, EntityType entity)
     switch ( l_PlayerData.character)
     {
         case Bowser:
-            hasCard = Bag::HasItem(Item::CC_Bowser);
+            hasCard = Bag::HasItem(CC_Bowser);
             if (hasCard)
-                cardCount = Bag::GetCardCount(Item::CC_Bowser);
+                cardCount = Bag::GetCardCount(CC_Bowser);
 
             if (source == Stomp)
             {
@@ -79,19 +79,19 @@ uint Player::GetAttackDamage(DamageSource source, EntityType entity)
             }
             break;
         case Luigi:
-            hasCard = Bag::HasItem(Item::CC_Luigi);
+            hasCard = Bag::HasItem(CC_Luigi);
                 if (hasCard)
-                    cardCount = Bag::GetCardCount(Item::CC_Luigi);
+                    cardCount = Bag::GetCardCount(CC_Luigi);
             break;
         case Mario:
-            hasCard = Bag::HasItem(Item::CC_Mario);
+            hasCard = Bag::HasItem(CC_Mario);
                 if (hasCard)
-                    cardCount = Bag::GetCardCount(Item::CC_Mario);
+                    cardCount = Bag::GetCardCount(CC_Mario);
             break;
         case Peach:
-            hasCard = Bag::HasItem(Item::CC_Peach);
+            hasCard = Bag::HasItem(CC_Peach);
                 if (hasCard)
-                    cardCount = Bag::GetCardCount(Item::CC_Peach);
+                    cardCount = Bag::GetCardCount(CC_Peach);
             break;
         
             

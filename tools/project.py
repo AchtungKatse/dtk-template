@@ -166,7 +166,7 @@ def load_build_config(config, build_config_path):
 # Generate build.ninja and objdiff.json
 def generate_build(config):
     build_config = load_build_config(config, config.out_path() / "config.json")
-    generate_build_ninja(config, build_config)
+    #generate_build_ninja(config, build_config)
     generate_objdiff_config(config, build_config)
 
 

@@ -1,2 +1,3 @@
-Player Stats/PlayerStats.cpp:auto_03_8014CCF8_text.o
-Menus/Inventory/Select.cpp:auto_fn_80185EC4_text.o
+Player/PlayerStats.cpp:auto_03_8014CCF8_text.o
+Player/GetAttack.cpp:auto_fn_80185EC4_text.o
+#Menus/Inventory/Select.cpp:auto_fn_80185EC4_text.o

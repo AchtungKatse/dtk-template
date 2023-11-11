@@ -1,56 +1,72 @@
 ﻿using System.Data;
+using System.Text;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 class Program
 {
     struct Settings
     {
-        public string srcDirectory { get; set; }
-        public string compilerDirectory { get; set; }
-        public string outputDirectory { get; set; }
-        public string includeDirectory {get;set;}
+        public string newObjPath { get; set; }
+        public string symbolMapPath { get; set; }
     }
 
     private const string MapFile = "CPP Mapping.txt";
     private static Settings settings;
+
     public static void Main(string[] args)
     {
         settings = GetSettings();
-        Dictionary<string, string> cppToOMaps = GetCPPOMap();
+        Dictionary<string, string> symbolMap = GetSymbolMap();
 
-        string output = "Starting";
+        List<string> missingSymbols = new List<string>();
 
-        foreach (var srcPath in cppToOMaps.Keys)
+        // Compile all source files to object files
+        Debug.WriteSection("Finding missing symbols");
+        foreach (var file in Directory.GetFiles(settings.newObjPath))
         {
-            if (!File.Exists(settings.srcDirectory + "/" + srcPath))
+            string elfInfo = RunCommand($"elf info {file}");
+            
+            // Filter symbols
+            var symbols = Regex.Matches(elfInfo, @"\b([A-Z]|[a-z])*__\w*", RegexOptions.IgnoreCase);
+            foreach (var match in symbols)
             {
-                output += $"Could not find file with name '{srcPath}'";
-                continue;
+                string missingMsg =$"{match}\t in {file}"; 
+                if (!symbolMap.ContainsKey(match.ToString()) && !missingSymbols.Contains(missingMsg))
+                    missingSymbols.Add(missingMsg);
             }
+        }
 
-            // Compile the thing
-            string command = $"-c \"{settings.srcDirectory.Replace('\\','/')}/{srcPath}\" -I\"{settings.includeDirectory}\" -O4,p -o \"{settings.outputDirectory}/{cppToOMaps[srcPath]}\"";
-            string command2 = $"-c \"{settings.srcDirectory.Replace('\\','/')}/{srcPath}\" -I\"{settings.includeDirectory}\" -O4,p -o \"output.o\"";
-            Console.WriteLine($"Writing {srcPath} to {cppToOMaps[srcPath]}");
-            RunCommand(command);
-            RunCommand(command2);
+        // Link all object files
+        if (missingSymbols.Count > 0)
+        {
+            Debug.WriteSection("Missing Symbols");
+            foreach (var symbol in missingSymbols)
+            {
+                Debug.Writei($"Symbol map missing \"{symbol}\"");
+            }
+        }
+        else
+        {
+            Debug.WriteSection("No Missing Symbols!");
         }
     }
 
-    private static void RunCommand(string command)
+    private static string RunCommand(string command)
     {
         System.Diagnostics.Process process = new System.Diagnostics.Process();
         System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
         startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
-        startInfo.FileName = $"{settings.compilerDirectory.Replace('\\', '/')}/mwcceppc.exe";
+        startInfo.FileName = $"../dtk.exe";
         startInfo.Arguments = $"{command}";
+        startInfo.RedirectStandardOutput = true;
         process.StartInfo = startInfo;
         process.Start();
-        
-        while (!process.HasExited)
-        {
 
-        }
+        string output = process.StandardOutput.ReadToEnd();
+        process.WaitForExit();
+        return output;
+
     }
 
     private static Settings GetSettings()
@@ -64,19 +80,19 @@ class Program
         return (Settings)JsonSerializer.Deserialize(File.ReadAllText("settings.json"), typeof(Settings));
     }
 
-    private static Dictionary<string, string> GetCPPOMap()
+    private static Dictionary<string, string> GetSymbolMap()
     {
-        if (!File.Exists(MapFile))
-        {
-            File.Create(MapFile);
-            return new Dictionary<string, string>();
-        }
-
         Dictionary<string, string> map = new Dictionary<string, string>();
-        foreach (var line in File.ReadAllLines(MapFile))
+        string[] lines = File.ReadAllLines(settings.symbolMapPath);
+        foreach (var line in lines)
         {
-            string[] segs = line.Split(':');
-            map.Add(segs[0], segs[1]);
+            string[] segments = line.Split(' ');
+            if (map.ContainsKey(segments[0]))
+            {
+                Console.WriteLine($"Found duplicate symbol \"{segments[0]}\"");
+                continue;
+            }
+            map.Add(segments[0], line);
         }
 
         return map;

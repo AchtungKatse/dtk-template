@@ -1,6 +1,6 @@
-#include "../../Menus/Inventory/Inventory.h"
-#include "../../Input/Input.h"
-#include "../../SFX/SFX.h"
+#include "Menus/Inventory/Inventory.h"
+#include "Input/Input.h"
+#include "SFX/SFX.h"
 
 // uVar2 = FUN_80253ff4(*(int *)(DAT_8056cb78 + 0xf8) -
 //                          ((uint)(*(uint *)(DAT_8056cb78 + 0xfc) <

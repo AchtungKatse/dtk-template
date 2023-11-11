@@ -1,5 +1,5 @@
-#include <Math/Math.h>
-#include <Combat/Combat.h>
+#include "Math/Math.h"
+#include "Combat/Combat.h"
 
 typedef enum Character {
     Mario=0,

@@ -1,4 +1,11 @@
-#include <Bag/Item.h>
+#include "Bag/Item.h"
+
+enum EntityType
+{
+    Goomba = 0,
+    Koopa = 0xb
+};
+
 
 struct Enemy {
     int field0_0x0;
@@ -13,10 +20,4 @@ struct Enemy {
     char unk_data_2[0x38];
 
     static Enemy* GetEnemyName(EntityType type);
-};
-
-enum EntityType
-{
-    Goomba = 0,
-    Koopa = 0xb
 };

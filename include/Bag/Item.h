@@ -1,3 +1,5 @@
+#pragma once
+
 typedef enum Item {
     CC_Bowser=0x1ca,
     CC_Luigi=0x209,

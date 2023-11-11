@@ -1,1 +1,4 @@
-{"srcDirectory":null,"compilerDirectory":null,"outputDirectory":null,"includeDirectory":null}
+{
+    "newObjPath": "out\\obj\\",
+    "symbolMapPath": "config/R8PE01/symbols.txt"
+}

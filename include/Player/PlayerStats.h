@@ -30,7 +30,7 @@ struct PlayerStats
     static void AddHealth(int health);
 
     static int GetCoins(int unused);
-    static int GetAttack();
+    static int GetAttack(int unused);
     static int GetScore(int unused);
     static int GetHealth(int unused);
     static int GetMaxHealth(int unused);

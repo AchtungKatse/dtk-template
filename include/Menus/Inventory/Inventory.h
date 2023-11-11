@@ -1,6 +1,6 @@
-#include "../Inventory/Types.h"
-#include "../../Menus/Cursor/Cursor.h"
-#include "../../Menus/MenuBoxEntry.h"
+#include "Menus/Inventory/Types.h"
+#include "Menus/Cursor/Cursor.h"
+#include "Menus/MenuBoxEntry.h"
 
 namespace Menus::Inventory
 {

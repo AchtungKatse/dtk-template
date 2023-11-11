@@ -1,7 +1,7 @@
-#include "PlayerStats.h"
+#include "Player/PlayerStats.h"
 
 
-void SetAttack(int attack)
+void PlayerStats::SetAttack(int attack)
 {
     // Set attack
     G_PlayerStats.attack = attack;
@@ -21,12 +21,12 @@ void SetAttack(int attack)
     return;
 }
 
-static int GetAttack(int unused)
+int PlayerStats::GetAttack(int unused)
 {
     return G_PlayerStats.attack;
 }
 
-void AddAttack(int add)
+void PlayerStats::AddAttack(int add)
 {
     G_PlayerStats.attack = G_PlayerStats.attack + add;
     if (99 < G_PlayerStats.attack)
@@ -46,7 +46,7 @@ void AddAttack(int add)
     return;
 }
 
-void SetHealth(int health)
+void PlayerStats::SetHealth(int health)
 {
     // Set health
     PlayerStats& stats = G_PlayerStats;
@@ -66,12 +66,12 @@ void SetHealth(int health)
     stats.unk_1 = 10;
 }
 
-int GetHealth(int unused)
+int PlayerStats::GetHealth(int unused)
 {
     return G_PlayerStats.health;
 }
 
-void AddHealth(int health)
+void PlayerStats::AddHealth(int health)
 {
     // Add health
     PlayerStats& stats = G_PlayerStats;
@@ -95,7 +95,7 @@ void AddHealth(int health)
     }
 }
 
-void SetMaxHealth(int value)
+void PlayerStats::SetMaxHealth(int value)
 {
     G_PlayerStats.maxHealth = value;
     if (999 < value)
@@ -110,17 +110,17 @@ void SetMaxHealth(int value)
     return;
 }
 
-int GetMaxHealth(int unused)
+int PlayerStats::GetMaxHealth(int unused)
 {
     return G_PlayerStats.maxHealth;
 }
 
-int GetScore(int unused)
+int PlayerStats::GetScore(int unused)
 {
     return G_PlayerStats.score;
 }
 
-void AddScore(int score)
+void PlayerStats::AddScore(int score)
 {
     G_PlayerStats.score = G_PlayerStats.score + score;
 
@@ -136,7 +136,7 @@ void AddScore(int score)
     }
 }
 
-void SetCoins(int coins)
+void PlayerStats::SetCoins(int coins)
 {
     G_PlayerStats.coins = coins;
     if (coins > 999)
@@ -149,12 +149,12 @@ void SetCoins(int coins)
     }
 }
 
-int GetCoins(int unused)
+int PlayerStats::GetCoins(int unused)
 {
     return G_PlayerStats.coins;
 }
 
-void AddCoins(int coins)
+void PlayerStats::AddCoins(int coins)
 {
     PlayerStats& stats = G_PlayerStats;
     G_PlayerStats.coins -= coins;
